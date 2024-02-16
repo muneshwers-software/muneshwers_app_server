@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div x-data="{
+        current: 'general',
+        containers : {
+            'Octopi': {name: 'Octopi', ref : 'https://app.octopi.co/', image: 'images/octopi.png', },
+            'GeoTab' :  {name: 'GeoTab', ref : 'https://my.geotab.com/muneshwarsgy/#', image: 'images/Geotab.ico',  },
+            'Extension List' : {name: 'Extension List', ref : 'https://developer.mozilla.org/', image: 'images/directory_image.png',  },
+            'Tradogram' :  {name: 'Tradogram', ref : 'https://app.tradogram.com/login', image: 'images/tradogram.png', },
+            'IMS':{name: 'IMS', ref : 'https://ims.muneshwers.com/ords/ims/r/ims', image: 'images/apex-logo-icon.svg', },
+            'Website' : {name: 'Website', ref : 'https://muneshwers.com/shipping-2/', image: 'images/muneshwers.png'},
+            'Sheets' : {name: 'Google Sheets', ref : 'https://docs.google.com/spreadsheets/u/0/?ec=asw-sheets-globalnav-goto', image: 'images/sheets.svg'}
+            },
+        apps:{
+        }
+    }"
+    x-init="
+    apps['general'] = [containers['Extension List'], containers['IMS'], containers['Website']];
+    apps['procurement'] = [containers['Tradogram']];
+    apps['ops'] = [containers['Octopi'], containers['GeoTab']];
+    apps['software'] = [containers['Sheets'], containers['IMS'], containers['Extension List']];
+
+    "
+    >
+        <header class="header">
+            <img :src="containers['Website'].image" alt="">
+            <h1 > Muneshwers App Directory </h1>
+            <div class="departments">
+                <template x-for="department in Object.keys(apps)">
+                    <button :class="current == department ? 'department selected' : 'department' " x-on:click="current = department" x-text="department" ></button>
+                </template>
+            </div>
+
+        </header>
+            <div class="grid-container" >
+                <template x-for="site in apps[current]">
+                    <a :href="site.ref">
+                        <div class="grid-item">
+                            <img :src="site.image">
+                            <span x-text="site.name" ></span>
+                        </div>
+                    </a>
+                </template>
+            </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+h1 {
+    color: #333;
+}
+/* Reset some default browser styles */
+body, h1, h2, p, ul {
+    margin: 30;
+    padding: 0;
+}
+
+img {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/* Create a 2-column grid layout */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 equal-width columns */
+    gap: 1rem; /* spacing between grid items */
+    padding-left: 480px; /* padding around grid container */
+    padding-right: 480px;
+    padding-top: 2rem;
+}
+
+/* Style each grid item */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    height: 150px; /* Fixed height for grid items */
+    border: 3px solid #E0E0E0; /* Light orange border */
+    border-radius: 10px; /* Rounded edges */
+    font-size: 1.5rem; /* Font size */
+    font-weight: 550;
+    background-color: #fff; /* White background */
+    cursor: pointer;
+    color: #333
+}
+
+.grid-item:hover {
+    background-color: #e6e6e6;
+}
+
+/* Prevent anchor tag from changing color and underline */
+a {
+    color: inherit; /* Use the default text color */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Style visited anchor tag */
+a:visited {
+    color: inherit; /* Use the default text color for visited links */
+}
+
+/* Style hover state of anchor tag */
+a:hover {
+    color: inherit; /* Use the default text color on hover */
+    text-decoration: none; /* Remove underline on hover */
+}
+
+/* Style active state of anchor tag (when clicked) */
+a:active {
+    color: inherit; /* Use the default text color when clicked */
+    text-decoration: none; /* Remove underline when clicked */
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0 ;
+}
+
+.departments{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.department {
+    border: none;
+    padding: 10px;
+    font-size: 15px;
+    background-color: transparent;
+    color: #4287F5;
+    font-weight: 600;
+}
+
+.department:hover{
+    color: #77AAFC;
+}
+
+.selected {
+    color: #0252D1;
+}
+.selected:hover{
+    color: #0252D1;
+}
